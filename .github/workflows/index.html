@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Music | BOS EZAY - Marwan Moussa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark">
+    <div class="container">
+        <div class="card">
+            <div class="disk">
+                <img>
+                <div class="buttons">
+                    <div class="button" id="prev"></div>
+                    <div class="button" id="next"></div>
+                </div>
+                <div onclick="toggleDarkMode()" class="dot">
+                    <div class="dot2">
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="data">
+                    <div class="song-name" id="song-name"></div>
+                    <div class="song-artist" id="song-artist"></div>
+                </div>
+                <div class="inputs">
+                    <div onmouseenter="hoverTime.classList.add('show')" onmouseleave="hoverTime.classList.remove('show')" class="progress-area">
+                        <div class="hover-time"><span>
+                            0:10
+                        </span></div>
+                        <div class="progress-bar">
+                            <div onmouseenter="isDotHoveredBool = true" onmouseleave="isDotHoveredBool = false" class="progress-dot">
+                            </div>
+                        </div>
+                        <audio onplay="setPlayButton()" onpause="setPauseButton()" id="song-audio" src="https://rr2---sn-hgn7rnll.googlevideo.com/videoplayback?expire=1719839074&ei=AlWCZsimGcW_6dsP796zqA8&ip=142.132.137.4&id=o-ADx9yNVmXMkW8VQneS619LxzaUSloao7YS3xT-8fXOYd&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&gir=yes&clen=3452458&ratebypass=yes&dur=156.061&lmt=1717368959325593&c=ANDROID_TESTSUITE&txp=5319224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRQIgRWP8CVDGDi19gZAJyyiN8wVXsFLSY6XAr3AH4Z7-92UCIQCiMQYcc_UDz5uubKUbZLhiT1XDAfV98p5VDvfVzbCFOw%3D%3D&title=Airplane%20Mode%20-%20Marwan%20Moussa%20%7C%20%D8%A2%D9%8A%D8%B1%D8%A8%D9%84%D8%A7%D9%86%20%D9%85%D9%88%D8%AF%20-%20%D9%85%D8%B1%D9%88%D8%A7%D9%86%20%D9%85%D9%88%D8%B3%D9%89&rm=sn-4g5e677e&fexp=24350518&req_id=676a59f248aca3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-uxaxjvhxbt2u-amgl7z&cms_redirect=yes&cmsv=e&mh=QX&mip=156.207.35.220&mm=29&mn=sn-hgn7rnll&ms=rdu&mt=1719817260&mv=m&mvi=2&pl=19&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AHlkHjAwRQIgASIiFomeH-pFxpDJqR4T4BWDIe3R9IvEqcixmn4FzesCIQDWPk1RN2T-fTxt_YKxfQgpL03YcHAKxhpnzZL6zIa7bQ%3D%3D">
+                            <source>
+                        </audio>
+                    </div>
+                    <div class="song-durations">
+                        <span id="current-time">00:00</span>
+                        <span id="max-time">0:00</span>
+                    </div>
+                    <div class="buttons">
+                        <div onclick="prevSong()" class="button" id="prev">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M7 6a1 1 0 0 1 2 0v4l6.4-4.8A1 1 0 0 1 17 6v12a1 1 0 0 1-1.6.8L9 14v4a1 1 0 1 1-2 0V6Z" clip-rule="evenodd"/>
+                              </svg>                              
+                        </div>
+                        <div onclick="togglePlaySong()" class="button" id="play">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div onclick="nextSong()" class="button" id="next">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M17 6a1 1 0 1 0-2 0v4L8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8L15 14v4a1 1 0 1 0 2 0V6Z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div onclick="changeMode()" class="button" id="mode">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 10 3-3m0 0-3-3m3 3H5v3m3 4-3 3m0 0 3 3m-3-3h14v-3"/>
+                            </svg>                                                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div onclick="showSongsList()" class="menu">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M17.316 4.052a.99.99 0 0 0-.9.14c-.262.19-.416.495-.416.82v8.566a4.573 4.573 0 0 0-2-.464c-1.99 0-4 1.342-4 3.443 0 2.1 2.01 3.443 4 3.443 1.99 0 4-1.342 4-3.443V6.801c.538.5 1 1.219 1 2.262 0 .56.448 1.013 1 1.013s1-.453 1-1.013c0-1.905-.956-3.18-1.86-3.942a6.391 6.391 0 0 0-1.636-.998 4 4 0 0 0-.166-.063l-.013-.005-.005-.002h-.002l-.002-.001ZM4 5.012c-.552 0-1 .454-1 1.013 0 .56.448 1.013 1 1.013h9c.552 0 1-.453 1-1.013 0-.559-.448-1.012-1-1.012H4Zm0 4.051c-.552 0-1 .454-1 1.013 0 .56.448 1.013 1 1.013h9c.552 0 1-.454 1-1.013 0-.56-.448-1.013-1-1.013H4Zm0 4.05c-.552 0-1 .454-1 1.014 0 .559.448 1.012 1 1.012h4c.552 0 1-.453 1-1.012 0-.56-.448-1.013-1-1.013H4Z" clip-rule="evenodd"/>
+                </svg>                          
+            </div>
+        </div>
+        <div class="menu-card">
+            <!--<div class="songs-list">
+            </div>
+            -->
+            <div class="lyrics-list">
+            </div>
+        </div>
+    </div>
+    
+<script src="app.js"></script>
+</body>
+</html>
